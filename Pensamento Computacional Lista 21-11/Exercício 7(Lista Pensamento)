@@ -1,0 +1,17 @@
+from itertools import product
+
+preposicoes = ["Está chovendo", "Está fazendo sol", "Hoje temos avaliação G1"]
+
+valores = list(product([True, False], repeat=3))
+
+def avaliarPreposicao(estaChovendo, estaFazendoSol, hojeG1):
+    condicao = estaChovendo or estaFazendoSol
+    return not hojeG1 or condicao
+
+print(f"{'Está Chovendo':<15}{'Está fazendo sol':<20}{'Hoje temos G1':<20}{'Resultado':<10}")
+print("=" * 65)
+
+for valoresPreposicao in valores:
+    estaChovendo, estaFazendoSol, hojeG1 = valoresPreposicao
+    resultado = avaliarPreposicao(estaChovendo, estaFazendoSol, hojeG1)
+    print(f"{str(estaChovendo):<15}{str(estaFazendoSol):<20}{str(hojeG1):<20}{str(resultado):<10}")
